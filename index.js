@@ -3,6 +3,8 @@ const Intern = require("./lib/Intern")
 const Manager = require("./lib/Manager")
 const inquirer = require("inquirer")
 const managerHTML = ""
+const engineerHTML = ""
+const internHTML = ""
 
 
 function start() {
@@ -160,9 +162,15 @@ const templateHTML = `
   </head>
   <body>
   <header>
-    <h1>Choose Your Fighter</h1>
+    <h1>Choose Your Fighter Name</h1>
     </header>
      ${managerHTML}
+     <h2>Enter Your Github User</h2>
+     </header>
+      ${engineerHTML}
+      <h3>Enter School Name</h3>
+    </header>
+     ${internHTML}
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
