@@ -3,9 +3,9 @@ const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
 const inquirer = require("inquirer");
 const fs = require("fs");
-const managerHTML = ""
-const engineerHTML = ""
-const internHTML = ""
+let managerHTML = ""
+let engineerHTML = ""
+let internHTML = ""
 
 
 function start() {
@@ -70,6 +70,7 @@ function addManager() {
         </div>
       </div>`
         console.log(managerHTML)
+        start()
     })
 }
 function addEngineer() {
@@ -108,6 +109,7 @@ function addEngineer() {
         </div>
       </div>`
         console.log(engineerHTML)
+        start()
     })
 }
 function addIntern() {
@@ -146,6 +148,7 @@ function addIntern() {
         </div>
       </div>`
         console.log(internHTML)
+        start()
     })
 }
 
@@ -200,3 +203,7 @@ function generatorHTML() {
     });
     console.log("Team HTML File generated")
 }
+
+
+
+start()
