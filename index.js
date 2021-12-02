@@ -63,10 +63,10 @@ function addManager() {
         managerHTML += `<div class="card" style="width: 18rem;">
         <h3 class="card-title">Manager</h3>
         <div class="card-body">
-          <h5 class="card-title">Name:{newManager.name}</h5>
-          <p class="card-text">ID: %{newManager.ID}</p>
+          <h5 class="card-title">Name:${newManager.name}</h5>
+          <p class="card-text">ID: ${newManager.id}</p>
           <a href="mailto:${newManager.email}" class="btn btn-primary">Contact me</a>
-          <p class="card-text">Office Number: %{newManager.officeNumber}</p>
+          <p class="card-text">Office Number: ${newManager.officeNumber}</p>
         </div>
       </div>`
         console.log(managerHTML)
@@ -102,10 +102,11 @@ function addEngineer() {
         engineerHTML += `<div class="card" style="width: 18rem;">
         <h3 class="card-title">Engineer</h3>
         <div class="card-body">
-          <h5 class="card-title">Name:{newEngineer.name}</h5>
-          <p class="card-text">ID: %{newEngineer.ID}</p>
+          <h5 class="card-title">Name:${newEngineer.name}</h5>
+          <p class="card-text">ID: ${newEngineer.id}</p>
           <a href="mailto:${newEngineer.email}" class="btn btn-primary">Contact me</a>
-          <p class="card-text">Github User: %{newEngineer.githubUser}</p>
+          <br>
+          <a class="card-text" href="https://github.com/${newEngineer.github}">Github User: ${newEngineer.github}</a>
         </div>
       </div>`
         console.log(engineerHTML)
@@ -142,9 +143,9 @@ function addIntern() {
         <h3 class="card-title">Intern</h3>
         <div class="card-body">
           <h5 class="card-title">Name:${newIntern.name}</h5>
-          <p class="card-text">ID: ${newIntern.Id}</p>
+          <p class="card-text">ID: ${newIntern.id}</p>
           <a href="mailto:${newIntern.email}" class="btn btn-primary">Contact me</a>
-          <p class="card-text">School name: ${newIntern.schoolName}</p>
+          <p class="card-text">School name: ${newIntern.schoolname}</p>
         </div>
       </div>`
         console.log(internHTML)
