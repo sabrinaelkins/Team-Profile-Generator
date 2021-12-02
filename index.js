@@ -1,7 +1,8 @@
 const Engineer = require("./lib/Engineer");
-const Intern = require("./lib/Intern")
-const Manager = require("./lib/Manager")
-const inquirer = require("inquirer")
+const Intern = require("./lib/Intern");
+const Manager = require("./lib/Manager");
+const inquirer = require("inquirer");
+const fs = require("fs");
 const managerHTML = ""
 const engineerHTML = ""
 const internHTML = ""
@@ -96,8 +97,8 @@ function addEngineer() {
         },
 
     ]).then(({ name, ID, email, github }) => {
-        const newManager = new Engineer(name, ID, email, github)
-        managerHTML += `<div class="card" style="width: 18rem;">
+        const newEngineer = new Engineer(name, ID, email, github)
+        engineerHTML += `<div class="card" style="width: 18rem;">
         <h3 class="card-title">Engineer</h3>
         <div class="card-body">
           <h5 class="card-title">Name:{newEngineer.name}</h5>
@@ -134,20 +135,22 @@ function addIntern() {
         },
 
     ]).then(({ name, ID, email, school }) => {
-        const newManager = new Intern(name, ID, email, school)
-        managerHTML += `<div class="card" style="width: 18rem;">
+        const newIntern = new Intern(name, ID, email, school)
+        internHTML += `<div class="card" style="width: 18rem;">
         <h3 class="card-title">Intern</h3>
         <div class="card-body">
-          <h5 class="card-title">Name:{newIntern.name}</h5>
-          <p class="card-text">ID: %{newIntern.ID}</p>
+          <h5 class="card-title">Name:${newIntern.name}</h5>
+          <p class="card-text">ID: ${newIntern.Id}</p>
           <a href="mailto:${newIntern.email}" class="btn btn-primary">Contact me</a>
-          <p class="card-text">School name: %{newIntern.schoolName}</p>
+          <p class="card-text">School name: ${newIntern.schoolName}</p>
         </div>
       </div>`
         console.log(internHTML)
     })
 }
-const templateHTML = `
+
+function generatorHTML() {
+    const templateHTML = `
 <!doctype html>
 <html lang="en">
   <head>
@@ -162,15 +165,22 @@ const templateHTML = `
   </head>
   <body>
   <header>
-    <h1>Choose Your Fighter Name</h1>
+    <h1>Team Profile Generator</h1>
     </header>
+    <main class="container">
+      <article class="container d-flex flex-wrap">
+      <h3>Manager</h3>
      ${managerHTML}
-     <h2>Enter Your Github User</h2>
-     </header>
+     </article>
+     <article class="container d-flex flex-wrap">
+     <h3>Engineer</h3>
       ${engineerHTML}
-      <h3>Enter School Name</h3>
-    </header>
+      </article>
+      <article class="container d-flex flex-wrap">
+
+      <h3>Intern</h3>
      ${internHTML}
+     </article>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
@@ -184,3 +194,9 @@ const templateHTML = `
   </body>
 </html>
 `
+    console.log(templateHTML)
+    fs.writeFileSync("index.html",templateHTML, function(err){
+        if (err) throw err;
+    });
+    console.log("Team HTML File generated")
+}
