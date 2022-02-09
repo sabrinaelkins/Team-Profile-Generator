@@ -61,7 +61,7 @@ function addManager() {
     ]).then(({ name, ID, email, details }) => {
         const newManager = new Manager(name, ID, email, details)
         managerHTML += `<div class="card" style="width: 18rem;">
-        <h3 class="card-title">Manager</h3>
+        <h3 class="card-title bg-secondary m-3 p-3 align-self-center">Manager</h3>
         <div class="card-body">
           <h5 class="card-title">Name:${newManager.name}</h5>
           <p class="card-text">ID: ${newManager.id}</p>
@@ -99,8 +99,8 @@ function addEngineer() {
 
     ]).then(({ name, ID, email, github }) => {
         const newEngineer = new Engineer(name, ID, email, github)
-        engineerHTML += `<div class="card" style="width: 18rem;">
-        <h3 class="card-title">Engineer</h3>
+        engineerHTML += `<div class="card d-flex flex-wrap " style="width: 18rem;">
+        <h3 class="card-title align-self-center bg-danger m-3 p-3">Engineer</h3>
         <div class="card-body">
           <h5 class="card-title">Name:${newEngineer.name}</h5>
           <p class="card-text">ID: ${newEngineer.id}</p>
@@ -140,7 +140,7 @@ function addIntern() {
     ]).then(({ name, ID, email, school }) => {
         const newIntern = new Intern(name, ID, email, school)
         internHTML += `<div class="card" style="width: 18rem;">
-        <h3 class="card-title">Intern</h3>
+        <h3 class="card-title align-self-center m-3 p-3 bg-warning">Intern</h3>
         <div class="card-body">
           <h5 class="card-title">Name:${newIntern.name}</h5>
           <p class="card-text">ID: ${newIntern.id}</p>
@@ -168,19 +168,21 @@ function generatorHTML() {
     <title>Team Profile Generator</title>
   </head>
   <body>
-  <header>
+  <header class="bg-primary text-center m-2 p-2">
     <h1>Team Profile Generator</h1>
+    <br />
+    <h5>By: Sabrina Elkins</h5>
     </header>
     <main class="container">
-      <article class="container d-flex flex-wrap">
+      <article class="container border border-5 border-info text-center">
       <h3>Manager</h3>
      ${managerHTML}
      </article>
-     <article class="container d-flex flex-wrap">
+     <article class="container border border-5 border-info text-center">
      <h3>Engineer</h3>
       ${engineerHTML}
       </article>
-      <article class="container d-flex flex-wrap">
+      <article class="container border border-5 border-info text-center">
 
       <h3>Intern</h3>
      ${internHTML}
